@@ -1,14 +1,7 @@
-# Plots
-
 import matplotlib.pyplot as plt
-# manipulação de dados
 import numpy as np
 import pandas as pd
 import seaborn as sns
-# visualização
-# Model
-# séries temporais
-from pmdarima.arima import auto_arima
 from sklearn.metrics import mean_absolute_error
 
 
@@ -148,34 +141,6 @@ def corr_deslocada(x: pd.Series, y: pd.Series, method='kendall', desloc=30, limi
     plt.show()
 
     return df
-
-
-def analise(volume: pd.DataFrame, col='qtd_programada'):
-    """
-    Analise temporal da quantidade programada.
-
-    :param col: coluna a ser analisada. Padrão = 'qtd_programada'
-    :param volume: Dataframe indexado com as datas de criação e com a quantidade programada.
-    :return: Série contendo o resíduo do modelo.
-    """
-    # Modelagem temporal
-    arima_model = auto_arima(volume[col], error_action="ignore")
-    print(arima_model.summary())
-
-    # DataFrame do modelo
-    visualization = pd.DataFrame({'previsto': arima_model.predict_in_sample(),
-                                  'valor real': volume[col],
-                                  'date': volume[col].index})
-
-    # Visualização do volume e da modelagem
-    plt.figure(figsize=(15, 5))
-
-    sns.lineplot(x='date', y='valor real', data=visualization, label='Volume')
-    sns.lineplot(x='date', y='previsto', data=visualization, label='Modelo')
-
-    plt.show()
-    volume['resid'] = arima_model.resid()
-    return volume.reset_index()
 
 
 def moving_average(series: pd.Series, n: int):
