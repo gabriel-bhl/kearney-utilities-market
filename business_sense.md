@@ -37,3 +37,6 @@ Transmission, distribution and generation costs: Although more constant, it stil
 Commodities prices: depending on the source or destiny of energy. E.g., the few big clients may increase or decrease
 their energy use depending on how commodities prices change. (Probably a data the client already has, but also market
 indexes)
+
+Financial Credit Score: As we saw, "total_debt" value and "total_bills" were the two most important features to predict 
+debt colletion. So more information about customer's behavior would play a decent role.
