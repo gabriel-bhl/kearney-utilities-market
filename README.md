@@ -1,12 +1,14 @@
-# Introdução
-Este repositório contém a solução para o problema "Bad debt collection in utilities market" da A. T. Kearney.
+# Introduction
+This repository is solution to the "Bad debt collection in utilities market" assessment from A. T. Kearney.
 
 
-# Como usar
-1. Baixe o notebook [aqui](https://dev.azure.com/eloanalytics/Analytics/_git/mosaic_contas_a_receber) (ou via `git clone`).
+# How to use
+1. Download [here](https://github.com/gabriel-bhl/kearney-utilities-market) (or via `git clone`).
 2. `pip install requirements.txt`.
-3. Edite o arquivo `config.py` com os 'paths' do seu diretório local do projeto.
+3. Edit the file `config.py` with the 'paths' from your local repository for this project.
 
-O arquivo bruto a analisado é um `.csv` e se encontra em `data/raw/utilities_disconnection.csv`.
+The raw data is a `.csv` file at `data/raw/utilities_disconnection.csv`.
 
-As análises exploratórias estão em `notebooks/analysis.ipynb`.
+The exploratory data analysis notebook at `notebooks/analysis.ipynb`.
+
+The trained model with the scores at `data/results/GABRIEL_LISBOA_PREDICTION.CSV`.
