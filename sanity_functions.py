@@ -18,7 +18,7 @@ def caract_df(df: pd.DataFrame):
     print('\nNº of missings*:')
     for col in df.columns:
         # n_na = pd.isna(df[col]).sum()
-        n_na = df[col].isna().any().sum()
+        n_na = df[col].isnull().sum()
         if n_na > 1:
             print('\t{}: {} - {}%'.format(col,
                                           n_na,
