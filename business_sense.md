@@ -1,6 +1,6 @@
 ### 1. Describe how the client could use the model to improve its debt collection strategy
 
-Great part of the problem with debt collection today relies in two main factors:
+Great part of the problem with debt collection today relies on two main factors:
 
 1. Assign this kind of work to third-party agencies, which leads to inneficient management focus and lack of transparency;
 2. Limited availability of tools, such as a credit policy, machine learning models and automated processes.

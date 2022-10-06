@@ -1,5 +1,5 @@
 def remove_collinear_features(x, threshold=0.9):
-    '''
+    """
     Objective:
         Remove collinear features in a dataframe with a correlation coefficient
         greater than the threshold. Removing collinear features can help a model
@@ -11,7 +11,7 @@ def remove_collinear_features(x, threshold=0.9):
 
     Output:
         dataframe that contains only the non-highly-collinear features
-    '''
+    """
 
     # Calculate the correlation matrix
     corr_matrix = x.corr()

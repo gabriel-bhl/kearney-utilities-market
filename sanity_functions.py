@@ -6,6 +6,7 @@ import statsmodels.api as sm
 from scipy.stats import skew, kurtosis
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
+
 def caract_df(df: pd.DataFrame):
     """
     Características básicas de um dataframe.
@@ -36,8 +37,7 @@ def check_catg(serie: pd.Series, s=7):
     :return: None
     """
     cond1 = serie.apply(lambda x: False if pd.isna(x) else True if len(x) != s else False)
-    cond2 = serie.apply(lambda x: False if pd.isna(x) else True if \
-        ''.join([num for num in x if not num.isnumeric()]) else False)
+    cond2 = serie.apply(lambda x: False if pd.isna(x) else True if ''.join([num for num in x if not num.isnumeric()]) else False)
 
     print(cond1.sum())
     print(cond2.sum())
@@ -164,7 +164,7 @@ def time_plot(serie: pd.Series, c='Green', stats=True):
 
     # Gerando dados para plots
     df_dia = serie.value_counts()  # frequencia
-    df_dia = df_dia.reindex(pd.date_range(serie.min(), serie.max())).fillna(0)  # setando todos os dias
+    df_dia = df_dia.reindex(pd.date_range(serie.min(), serie.max())).fillna(0)  # arrumando os dias
     df_dia = df_dia.reset_index()
     df_dia['media movel (30)'] = df_dia[serie.name].rolling(window=30).mean()  # média movel
 
@@ -177,7 +177,7 @@ def time_plot(serie: pd.Series, c='Green', stats=True):
     df_ano.sort_values('date', inplace=True)
 
     # Plots
-    fig, ax = plt.subplots(3, 1, figsize=(15, 8))
+    fig, ax = plt.subplots(3, figsize=(15, 8))
 
     sns.lineplot(x='index', y=serie.name, color=c, data=df_dia, ax=ax[0])
 
@@ -216,10 +216,10 @@ def time_plot(serie: pd.Series, c='Green', stats=True):
         print(27 * '##', 'Estatísticas', 27 * '##', '\n')
 
         # Plots estatisticos
-        fig = plt.figure(figsize=(15, 8))
-        ax1 = plt.subplot2grid((2, 2), (0, 0), rowspan=1, colspan=2)
-        ax2 = plt.subplot2grid((2, 2), (1, 0), rowspan=1, colspan=1)
-        ax3 = plt.subplot2grid((2, 2), (1, 1), rowspan=1, colspan=1)
+        plt.figure(figsize=(15, 8))
+        ax1 = plt.subplot2grid((2, 2), (0, 0), colspan=2)
+        ax2 = plt.subplot2grid((2, 2), (1, 0))
+        ax3 = plt.subplot2grid((2, 2), (1, 1))
 
         sns.lineplot(x='index', y=serie.name, color=c, data=df_dia, label='Dados', ax=ax1)
         sns.lineplot(x='index', y='media movel (30)', color='firebrick', data=df_dia, label='Média movel (30 dias)',
@@ -289,7 +289,7 @@ def numeric_plot(serie: pd.Series, c='Green', outliers=True, mult=3.0):
     df.set_index('', inplace=True)
 
     # Plot
-    fig, ax = plt.subplots(2, 1, figsize=(15, 6), sharex=True)
+    fig, ax = plt.subplots(2, figsize=(15, 6), sharex=True)
 
     violin = sns.violinplot(x=serie, color=c, inner=None, ax=ax[0])
     plt.setp(violin.collections, alpha=.3)
