@@ -16,3 +16,4 @@ catboost
 seaborn~=0.12.0
 missingno
 hyperopt
+lightgbm
