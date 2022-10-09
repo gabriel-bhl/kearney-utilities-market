@@ -37,7 +37,8 @@ def check_catg(serie: pd.Series, s=7):
     :return: None
     """
     cond1 = serie.apply(lambda x: False if pd.isna(x) else True if len(x) != s else False)
-    cond2 = serie.apply(lambda x: False if pd.isna(x) else True if ''.join([num for num in x if not num.isnumeric()]) else False)
+    cond2 = serie.apply(
+        lambda x: False if pd.isna(x) else True if ''.join([num for num in x if not num.isnumeric()]) else False)
 
     print(cond1.sum())
     print(cond2.sum())
